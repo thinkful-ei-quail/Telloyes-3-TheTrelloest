@@ -11,7 +11,7 @@ describe("Card", () => {
   });
   it("renders to UI as expected", () => {
     const tree = renderer
-      .create(<Card title="something" content="someotherthing" />)
+      .create(<Card title="something" content="somethingelse" />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

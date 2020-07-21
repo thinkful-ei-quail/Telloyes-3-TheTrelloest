@@ -4,13 +4,18 @@ import renderer from "react-test-renderer";
 import List from "./List";
 
 describe("List", () => {
-  it.only("renders without crashing", () => {
+  it("renders without crashing", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<List />, div);
+    ReactDOM.render(
+      <List cards={[{ id: 2, title: "test", content: "content" }]} />,
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
   });
   it("renders to UI as expected", () => {
-    const tree = renderer.create(<List />).toJSON();
+    const tree = renderer
+      .create(<List cards={[{ id: 2, title: "test", content: "content" }]} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
